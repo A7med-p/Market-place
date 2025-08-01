@@ -20,7 +20,7 @@ Market-place/
 │   │   ├── viewController.js    
 │   │   ├── apiController.js     
 │   │   └── routeController.js   
-│   └── fruits/
+│   └── items/
 │       ├── dataController.js    
 │       ├── viewController.js    
 │       ├── apiController.js     
