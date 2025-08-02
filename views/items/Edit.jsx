@@ -6,7 +6,7 @@ function Edit (props) {
     return(
         <div item={props.item}>
             <h1>{name} Edit Page</h1>
-            <a href='/items'>Go back to Index Page</a>
+            <a href={`/items/${_id}?token=${props.token}`}>Go back to the Item Page</a>
             <form action={`/items/${_id}?_method=PUT&token=${props.token}`} method="POST">
                 Name: <input type="text" name="name" defaultValue={name}/><br/>
                 Image: <input type="url" name="image" defaultValue={image}/><br/>
