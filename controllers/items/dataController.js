@@ -1,10 +1,10 @@
 const Item = require('../../models/item.js')
 
 const dataController = {}
-
 dataController.index = async (req,res,next) => {
    try {
-    res.locals.data.items = await Item.find({})
+    const user = await req.user.populate('items')
+    res.locals.data.items = user.items
     next()
    } catch(error) {
     res.status(400).send({ message: error.message })
@@ -22,6 +22,11 @@ dataController.destroy = async (req, res, next ) => {
 }
 
 dataController.update = async (req, res, next) => {
+    if(req.body.readyToEat === 'on'){
+        req.body.readyToEat = true;
+    } else if(req.body.readyToEat !== true) {
+        req.body.readyToEat = false;
+    }
     try {
       res.locals.data.item = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true })
       next()
@@ -31,8 +36,15 @@ dataController.update = async (req, res, next) => {
 }
 
 dataController.create = async (req, res, next) => {
+    if(req.body.readyToEat === 'on'){
+        req.body.readyToEat = true;
+    } else if(req.body.readyToEat !== true) {
+        req.body.readyToEat = false;
+    }
     try {
       res.locals.data.item = await Item.create(req.body)
+      req.user.items.addToSet({_id: res.locals.data.item._id })
+      await req.user.save()
       next()
     } catch (error) {
       res.status(400).send({ message: error.message })
