@@ -20,4 +20,5 @@ app.use(express.static('public'))
 app.use(morgan('dev'))
 app.use('/users', userRoutes)
 app.use('/items', itemsRouter)
+app.use('/api', require('./routes/apiRoutes') )
 module.exports = app
