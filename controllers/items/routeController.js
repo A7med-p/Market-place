@@ -8,9 +8,13 @@ router.get('/', authDataController.auth, dataController.index, viewController.in
 
 router.get('/new', authDataController.auth, viewController.newView );
 
-router.get('/home', dataController.Home, viewController.home );
+router.get('/home', authDataController.xauth, dataController.Home, viewController.home );
 
-router.get('/buy/:id', dataController.buy, viewController.buy );
+router.get('/buy/:id', authDataController.xauth, dataController.show, viewController.buy );
+
+router.get('/cart', authDataController.auth, dataController.Cart, viewController.cart );
+
+router.post('/cart', authDataController.auth, dataController.Cartcreate, viewController.redirectCart);
 
 router.delete('/:id', authDataController.auth, dataController.destroy, viewController.redirectHome);
 

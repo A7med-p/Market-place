@@ -75,3 +75,16 @@ exports.deleteUser = async (req, res) => {
     res.status(400).json({message: error.message})
   }
 }
+
+exports.xauth = async (req, res, next) => {
+  
+    let token
+    if(req.query.token){
+      token = req.query.token
+    }else if(req.header('Authorization')){
+      token = req.header('Authorization').replace('Bearer ', '')
+    }
+    
+    res.locals.data.token = token
+    next()
+} 

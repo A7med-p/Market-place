@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
-  items: [{ type: mongoose.Schema.Types.ObjectId, ref:'Item'}]
+  items: [{ type: mongoose.Schema.Types.ObjectId, ref:'Item'}],
+  carts: [{ type: mongoose.Schema.Types.ObjectId, ref:'Cart'}]
 })
 
 userSchema.methods.toJSON = function() {

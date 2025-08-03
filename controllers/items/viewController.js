@@ -1,4 +1,5 @@
 const RESOURCE_PATH = '/items'
+const CART_PATH = '/items/cart'
 const viewController = {
   signUp(req, res, next){
     res.render('/auth/SignUp')
@@ -24,7 +25,17 @@ const viewController = {
   buy(req, res, next){
     res.render('items/Buy', res.locals.data)
   },
-  redirectHome(req, res, next){
+  cart(req, res, next){
+    res.render('items/Cart', res.locals.data)
+  },
+  redirectCart(req, res, next){
+    if(res.locals.data.token){
+      res.redirect(`${CART_PATH}?token=${res.locals.data.token}`)
+    }else {
+      res.redirect(RESOURCE_PATH)
+    } 
+  },
+   redirectHome(req, res, next){
     if(res.locals.data.token){
       res.redirect(`${RESOURCE_PATH}?token=${res.locals.data.token}`)
     }else {

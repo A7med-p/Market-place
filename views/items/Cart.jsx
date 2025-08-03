@@ -1,12 +1,11 @@
 const React = require('react')
 const Layout = require('../layouts/Layout')
 
-function Home(props) {
+function Index(props) {
     const items = props.items
     return (
         <Layout item={props.item}>
-            
-            <h1>Home Page</h1><a href={`/items/cart?token=${props.token}`}>🛒</a>
+            <h1>items Index Page</h1>
             
                 {items.map((item) => {
                     return (
@@ -16,7 +15,6 @@ function Home(props) {
                             <h3>{`${item.name}`}</h3>
                             <p>{`$${item.price} - ${item.location}`}</p>
                             <p><small>{`${item.category}`}</small></p>
-                            <a href = {`/items/buy/${item._id}?token=${props.token}`}><button>View Details</button></a>
                         </div>
                         
                     )
@@ -28,4 +26,4 @@ function Home(props) {
     )
 }
 
-module.exports = Home
+module.exports = Index

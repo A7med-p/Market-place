@@ -7,7 +7,7 @@ function Index(props) {
         <Layout item={props.item}>
             <h1>items Index Page</h1>
             <a href={`/items/new?token=${props.token}`}>Post new item</a>
-            
+            <a href={`/items/home?token=${props.token}`}>Home page</a>
                 {items.map((item) => {
                     return (
                         

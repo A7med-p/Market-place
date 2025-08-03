@@ -1,4 +1,5 @@
 const Item = require('../../models/item.js')
+const Cart = require('../../models/cart.js')
 
 const dataController = {}
 dataController.index = async (req,res,next) => {
@@ -66,6 +67,23 @@ dataController.buy = async (req,res,next) => {
    try {
     res.locals.data.item = await Item.findById(req.params.id)
     next()
+   } catch(error) {
+    res.status(400).send({ message: error.message })
+  }
+}
+
+dataController.Cart = async (req,res,next) => {
+   try {
+    res.locals.data.items = await Cart.find({})
+    next()
+   } catch(error) {
+    res.status(400).send({ message: error.message })
+  }
+}
+
+dataController.Cartcreate = async (req,res,next) => {
+   try {
+    
    } catch(error) {
     res.status(400).send({ message: error.message })
   }
