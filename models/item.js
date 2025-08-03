@@ -6,7 +6,8 @@ const itemSchema = new mongoose.Schema({
     price: { type: String, required: true },
     category: { type: String, required: true },
     location: { type: String, required: true },
-    description: { type: String, required: true }
+    description: { type: String, required: true },
+    stock: { type: String, required: true }
 })
 
 const Item = mongoose.model('Item', itemSchema)

@@ -1,11 +1,11 @@
 const React = require('react')
 const Layout = require('../layouts/Layout')
 
-function Show(props){
+function Buy(props){
  return(
    <Layout item={props.item}>
        <div class="component-header">
-        <a href={`/items?token=${props.token}`}>Go back to Index Page</a>
+        <a href={`/items/home`}>Go back to home Page</a>
          <h2>{props.item.name}</h2>
          <p>${props.item.price} - {props.item.location}</p>
        </div>
@@ -31,15 +31,12 @@ function Show(props){
         <div class="detail-label">Stock:</div>
         <div class="detail-value">{props.item.stock}</div>
        </div>
-       <form action={`/items/${props.item._id}?_method=DELETE&token=${props.token}`} method="POST">
-        <input type="submit" value={`Delete this ${props.item.name}`}/>
-       </form>
-       <div>
-         <a href={`/items/${props.item._id}/edit?token=${props.token}`}><button>{`Edit this ${props.item.name}`}</button></a>
-       </div>
+       
+        <input type="submit" value={`Buy this ${props.item.name}`}/>
+       
      </div>
    </Layout>
     )
 }
 
-module.exports = Show
+module.exports = Buy

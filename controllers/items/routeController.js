@@ -8,6 +8,10 @@ router.get('/', authDataController.auth, dataController.index, viewController.in
 
 router.get('/new', authDataController.auth, viewController.newView );
 
+router.get('/home', dataController.Home, viewController.home );
+
+router.get('/buy/:id', dataController.buy, viewController.buy );
+
 router.delete('/:id', authDataController.auth, dataController.destroy, viewController.redirectHome);
 
 router.put('/:id', authDataController.auth, dataController.update, viewController.redirectShow);

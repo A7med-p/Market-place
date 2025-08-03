@@ -1,7 +1,7 @@
 const React = require('react')
 
 function Edit (props) {
-    const { name, _id, image, price, category, location, description } = props.item
+    const { name, _id, image, price, category, location, description,stock } = props.item
 
     return(
         <div item={props.item}>
@@ -14,6 +14,7 @@ function Edit (props) {
                 category: <input type="text" name="category" defaultValue={category}/><br/>
                 location: <input type="text" name="location" defaultValue={location}/><br/>
                 description: <textarea name="description" defaultValue={description}></textarea><br/>
+                stock: <input type="number" name="stock" defaultValue={stock} /><br/>
                 <input type="submit" value="Update Item" />
             </form>
         </div>

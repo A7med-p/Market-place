@@ -12,6 +12,7 @@ function New (props) {
                 category: <input type="text" name="category" /><br/>
                 location: <input type="text" name="location" /><br/>
                 description: <textarea name="description"></textarea><br/>
+                stock: <input type="number" name="stock" /><br/>
                 <input type="submit" value="Post Item" />
             </form>
         </div>

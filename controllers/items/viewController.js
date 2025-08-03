@@ -18,6 +18,12 @@ const viewController = {
   newView(req, res, next){
     res.render('items/New', res.locals.data)
   },
+  home(req, res, next){
+    res.render('items/Home', res.locals.data)
+  },
+  buy(req, res, next){
+    res.render('items/Buy', res.locals.data)
+  },
   redirectHome(req, res, next){
     if(res.locals.data.token){
       res.redirect(`${RESOURCE_PATH}?token=${res.locals.data.token}`)
