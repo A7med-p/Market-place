@@ -32,7 +32,7 @@ const viewController = {
     if(res.locals.data.token){
       res.redirect(`${CART_PATH}?token=${res.locals.data.token}`)
     }else {
-      res.redirect(RESOURCE_PATH)
+      res.redirect(CART_PATH)
     } 
   },
    redirectHome(req, res, next){

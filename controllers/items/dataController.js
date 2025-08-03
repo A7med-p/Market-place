@@ -72,21 +72,53 @@ dataController.buy = async (req,res,next) => {
   }
 }
 
-dataController.Cart = async (req,res,next) => {
+dataController.Cart = async (req, res, next) => {
    try {
-    res.locals.data.items = await Cart.find({})
+    const cart = await Cart.findOne({ user: req.user._id }).populate('items')
+    res.locals.data.carts = cart ? cart.items : []
+    res.locals.data.cart = cart
     next()
    } catch(error) {
     res.status(400).send({ message: error.message })
   }
 }
 
-dataController.Cartcreate = async (req,res,next) => {
-   try {
-    
-   } catch(error) {
-    res.status(400).send({ message: error.message })
-  }
+dataController.addToCart = async (req, res, next) => {
+    try {
+        let cart = await Cart.findOne({ user: req.user._id })
+        if (!cart) {
+            cart = await Cart.create({ user: req.user._id, items: [] })
+        }
+        const item = await Item.findById(req.body.itemId)
+        if (item.stock > 0) {
+            item.stock = parseInt(item.stock) - 1
+            await item.save()
+            cart.items.addToSet(item._id)
+            await cart.save()
+            res.locals.data.cart = cart
+            next()
+        } else {
+            res.status(400).send({ message: 'Item out of stock' })
+        }
+    } catch (error) {
+        res.status(400).send({ message: error.message })
+    }
+}
+
+dataController.removeFromCart = async (req, res, next) => {
+    try {
+        const cart = await Cart.findOne({ user: req.user._id })
+        if (!cart) throw new Error('Cart not found')
+        const item = await Item.findById(req.body.itemId)
+        item.stock = parseInt(item.stock) + 1
+        await item.save()
+        cart.items.pull(item._id)
+        await cart.save()
+        res.locals.data.cart = cart
+        next()
+    } catch (error) {
+        res.status(400).send({ message: error.message })
+    }
 }
 
 module.exports = dataController

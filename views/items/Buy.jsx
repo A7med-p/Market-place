@@ -31,8 +31,9 @@ function Buy(props){
         <div class="detail-label">Stock:</div>
         <div class="detail-value">{props.item.stock}</div>
        </div>
-       <form action={`/items/cart?token=${props.token}`} method="POST">
-        <input type="submit" value={`Buy this ${props.item.name}`}/>
+       <form action={`/items/cart/add?token=${props.token}`} method="POST">
+         <input type="hidden" name="itemId" value={props.item._id} />
+         <input type="submit" value={`Add ${props.item.name} to Cart`} />
        </form>
         
        

@@ -14,7 +14,9 @@ router.get('/buy/:id', authDataController.xauth, dataController.show, viewContro
 
 router.get('/cart', authDataController.auth, dataController.Cart, viewController.cart );
 
-router.post('/cart', authDataController.auth, dataController.Cartcreate, viewController.redirectCart);
+router.post('/cart/add', authDataController.auth, dataController.addToCart, viewController.redirectCart);
+
+router.post('/cart/remove', authDataController.auth, dataController.removeFromCart, viewController.redirectCart);
 
 router.delete('/:id', authDataController.auth, dataController.destroy, viewController.redirectHome);
 
