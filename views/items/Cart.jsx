@@ -16,7 +16,7 @@ function Cart(props) {
                         <p><small>{item.category}</small></p>
                         <form action={`/items/cart/remove?token=${props.token}`} method="POST">
                             <input type="hidden" name="itemId" value={item._id} />
-                            <input type="submit" value={`Remove ${item.name} from Cart`} />
+                            <input type="submit" class="delete" value={`Remove ${item.name} from Cart`} />
                         </form>
                     </div>
                 )

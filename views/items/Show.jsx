@@ -4,6 +4,8 @@ const Layout = require('../layouts/Layout')
 function Show(props){
  return(
    <Layout item={props.item}>
+    <div class="component">
+    <div class="item-detail">
        <div class="component-header">
         <a href={`/items?token=${props.token}`}>Go back to Index Page</a>
          <h2>{props.item.name}</h2>
@@ -32,11 +34,13 @@ function Show(props){
         <div class="detail-value">{props.item.stock}</div>
        </div>
        <form action={`/items/${props.item._id}?_method=DELETE&token=${props.token}`} method="POST">
-        <input type="submit" value={`Delete this ${props.item.name}`}/>
+        <input type="submit" class="delete" value={`Delete this ${props.item.name}`}/>
        </form>
        <div>
          <a href={`/items/${props.item._id}/edit?token=${props.token}`}><button>{`Edit this ${props.item.name}`}</button></a>
        </div>
+     </div>
+     </div>
      </div>
    </Layout>
     )

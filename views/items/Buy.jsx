@@ -4,6 +4,8 @@ const Layout = require('../layouts/Layout')
 function Buy(props){
  return(
    <Layout item={props.item}>
+    <div class="component">
+    <div class="item-detail">
        <div class="component-header">
         <a href={`/items/home?token=${props.token}`}>Go back to home Page</a>
          <h2>{props.item.name}</h2>
@@ -33,11 +35,11 @@ function Buy(props){
        </div>
        <form action={`/items/cart/add?token=${props.token}`} method="POST">
          <input type="hidden" name="itemId" value={props.item._id} />
-         <input type="submit" value={`Add ${props.item.name} to Cart`} />
+         <input type="submit" class="buy" value={`Add ${props.item.name} to Cart`} />
        </form>
-        
-       
-     </div>
+    </div>
+    </div>
+    </div>
    </Layout>
     )
 }

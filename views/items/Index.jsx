@@ -5,11 +5,18 @@ function Index(props) {
     const items = props.items
     return (
         <Layout item={props.item}>
-            <h1>items Index Page</h1>
-            <a href={`/items/new?token=${props.token}`}>Post new item</a>
-            <a href={`/items/home?token=${props.token}`}>Home page</a>
+            
+            <header>
+            <span class="spa"><a href={`/items/new?token=${props.token}`}>Post new item</a></span>
+            <span class="spa"><h1>items Index Page</h1></span>
+            <span class="spa"><a href={`/items/home?token=${props.token}`}>Home page</a></span>
+            </header>
+
+            <div class="component">
+            <div class="gallery">
                 {items.map((item) => {
                     return (
+                        
                         
                         <div class="item">
                             <img src={`${item.image}`}></img>
@@ -19,10 +26,13 @@ function Index(props) {
                             <a href = {`/items/${item.id}?token=${props.token}`}><button>View Details</button></a>
                         </div>
                         
+                    
                     )
                 }
                 
                 )}
+            </div>
+            </div>
             
         </Layout>
     )

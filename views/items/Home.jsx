@@ -5,9 +5,14 @@ function Home(props) {
     const items = props.items
     return (
         <Layout item={props.item}>
-            
-            <h1>Home Page</h1><a href={`/items/cart?token=${props.token}`}>🛒</a>
-            
+            <header>
+            <span class="spa"><a href={`/items?token=${props.token}`}>prof</a></span>
+            <span class="spa"><h1>Home Page</h1></span>
+            <span class="spa"><a href={`/items/cart?token=${props.token}`}>🛒</a></span>
+            </header>
+
+            <div class="component">
+            <div class="gallery">
                 {items.map((item) => {
                     return (
                         
@@ -23,6 +28,8 @@ function Home(props) {
                 }
                 
                 )}
+            </div>
+            </div>
             
         </Layout>
     )
