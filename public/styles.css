@@ -12,7 +12,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
-    background-color: #fcfdf13b;
+    background-color: #f5f7fa;
     color: var(--dark-color);
     line-height: 1.6;
 }
@@ -126,7 +126,22 @@ button:hover {
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: all 0.3s ease;
+    max-width: 120px;
 }
 .buy:hover{
     background-color: #2980b9;
 }
+.add-form {
+    display: grid;
+    gap: 15px;
+}
+.form-group {
+    display: grid;
+    gap: 5px;
+}
+.write{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    width: 100%;
+ }

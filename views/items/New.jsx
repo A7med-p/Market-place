@@ -1,21 +1,46 @@
 const React = require('react')
+const Layout = require('../layouts/Layout')
 
 function New (props) {
     return(
-        <div item={props.item}>
+        <Layout item={props.item}>
+            <div class="component-header">
             <h1>New Item Page</h1>
             <a href={`/items?token=${props.token}`}>Go back to Index Page</a>
-            <form action={`/items?token=${props.token}`} method="POST">
-                Name: <input type="text" name="name" /><br/>
-                Image: <input type="url" name="image" /><br/>
-                Prise ($): <input type="number" name="price" /><br/>
-                category: <input type="text" name="category" /><br/>
-                location: <input type="text" name="location" /><br/>
-                description: <textarea name="description"></textarea><br/>
-                stock: <input type="number" name="stock" /><br/>
-                <input type="submit" value="Post Item" />
+            </div>
+            
+            <form action={`/items?token=${props.token}`} method="POST" class="add-form" >
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" class="write" placeholder="Enter item name" required />
+                </div>
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="text" name="image" class="write" placeholder="Enter image URL" required />
+                </div>
+                <div class="form-group">
+                    <label>Price ($)</label>
+                    <input type="number" name="price" class="write" placeholder="Enter the price in $" min="0" step="0.01" required />
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" name="category" class="write" placeholder="Enter item name" required />
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" name="location" class="write" placeholder="Enter location" required />
+                </div>
+                <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="write" rows="3" placeholder="Enter description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input type="number" name="stock" class="write" placeholder="Enter the price in $" min="0" step="0.01" required />
+                </div>
+                <input type="submit" class="buy" value="Post Item" />
             </form>
-        </div>
+        </Layout>
     )
 }
 
