@@ -24,7 +24,7 @@ function New (props) {
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <input type="text" name="category" class="write" placeholder="Enter item name" required />
+                    <input type="text" name="category" class="write" placeholder="Enter item category" required />
                 </div>
                 <div class="form-group">
                     <label>Location</label>
@@ -36,7 +36,7 @@ function New (props) {
                 </div>
                 <div class="form-group">
                     <label>Stock</label>
-                    <input type="number" name="stock" class="write" placeholder="Enter the price in $" min="0" step="0.01" required />
+                    <input type="number" name="stock" class="write" placeholder="Enter the stock" min="0" required />
                 </div>
                 <input type="submit" class="buy" value="Post Item" />
             </form>

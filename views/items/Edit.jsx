@@ -38,10 +38,11 @@ function Edit (props) {
                 </div>
                 <div class="form-group">
                     <label>Stock</label>
-                    <input type="number" name="stock" class="write" placeholder="Enter the sttock" min="0" defaultValue={stock} required />
+                    <input type="number" name="stock" class="write" placeholder="Enter the stock" min="0" defaultValue={stock} required />
                 </div>
                 <input type="submit" class="buy" value="Update Item" />
             </form>
+            
         </Layout>
     )
 }

@@ -3,9 +3,17 @@ const Layout = require('../layouts/Layout')
 
 function Cart(props) {
     const carts = props.carts
+    const totalPrice = carts.reduce((sum, item) => sum + parseFloat(item.price), 0)
+
     return (
         <Layout cart={props.cart}>
-            <h1>🛒 Cart</h1><a href={`/items/home?token=${props.token}`}>Go back to home Page</a>
+            <header>
+            <span class="spa"><h1>🛒 Cart</h1></span>
+            <span class="spa"><a href={`/items/home?token=${props.token}`}>Go back to home Page</a></span>
+            </header>
+            
+            <div class="component">
+            <div class="gallery">
             {carts.length === 0 && <p>Your cart is empty.</p>}
             {carts.map((item) => {
                 return (
@@ -21,6 +29,13 @@ function Cart(props) {
                     </div>
                 )
             })}
+            </div>
+            </div>
+            {carts.length > 0 && (
+                <div>
+                    <h2>Total: ${totalPrice.toFixed(2)}</h2>
+                </div>
+            )}
         </Layout>
     )
 }
