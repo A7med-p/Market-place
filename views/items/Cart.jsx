@@ -9,7 +9,7 @@ function Cart(props) {
         <Layout cart={props.cart}>
             <header>
             <span class="spa"><h1>🛒 Cart</h1></span>
-            <span class="spa"><a href={`/items/home?token=${props.token}`}>Go back to home Page</a></span>
+            <span class="spa"><a href={`/items/home?token=${props.token}`}><button>Home page</button></a></span>
             </header>
             
             <div class="component">
@@ -32,9 +32,12 @@ function Cart(props) {
             </div>
             </div>
             {carts.length > 0 && (
-                <div>
-                    <h2>Total: ${totalPrice.toFixed(2)}</h2>
-                </div>
+              <div>
+                <h2>Total: ${totalPrice.toFixed(2)}</h2>
+                  <form action={`/items/cart/buy?token=${props.token}`} method="POST">
+                   <input type="submit" class="buy" value="Buy" />
+                  </form>
+              </div>
             )}
         </Layout>
     )

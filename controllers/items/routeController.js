@@ -18,6 +18,8 @@ router.post('/cart/add', authDataController.auth, dataController.addToCart, view
 
 router.post('/cart/remove', authDataController.auth, dataController.removeFromCart, viewController.redirectCart);
 
+router.post('/cart/buy', authDataController.auth, dataController.clearCart, viewController.redirectCart);
+
 router.delete('/:id', authDataController.auth, dataController.destroy, viewController.redirectHome);
 
 router.put('/:id', authDataController.auth, dataController.update, viewController.redirectShow);

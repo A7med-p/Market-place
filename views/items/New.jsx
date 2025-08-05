@@ -5,8 +5,8 @@ function New (props) {
     return(
         <Layout item={props.item}>
             <div class="component-header">
-            <h1>New Item Page</h1>
-            <a href={`/items?token=${props.token}`}>Go back to Index Page</a>
+            <h1>create new item</h1>
+            <a href={`/items?token=${props.token}`}><button>My page</button></a>
             </div>
             
             <form action={`/items?token=${props.token}`} method="POST" class="add-form" >

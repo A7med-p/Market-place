@@ -121,4 +121,20 @@ dataController.removeFromCart = async (req, res, next) => {
     }
 }
 
+dataController.clearCart = async (req, res, next) => {
+    try {
+        const cart = await Cart.findOne({ user: req.user._id }).populate('items')
+        for (const item of cart.items) {
+            if (parseInt(item.stock) <= 0) {
+                await Item.deleteOne({ _id: item._id })
+            }
+        }
+        cart.items = []
+        await cart.save()
+        res.locals.data.cart = cart
+        next()
+    } catch (error) {
+        res.status(400).send({ message: error.message })
+    }
+}
 module.exports = dataController

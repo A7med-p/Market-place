@@ -7,9 +7,9 @@ function Index(props) {
         <Layout item={props.item}>
             
             <header>
-            <span class="spa"><a href={`/items/new?token=${props.token}`}>Post new item</a></span>
-            <span class="spa"><h1>items Index Page</h1></span>
-            <span class="spa"><a href={`/items/home?token=${props.token}`}>Home page</a></span>
+            <span class="spa"><a href={`/items/new?token=${props.token}`}><button>➕</button></a></span>
+            <span class="spa"><h1>My Page</h1></span>
+            <span class="spa"><a href={`/items/home?token=${props.token}`}><button>Home page</button></a></span>
             </header>
 
             <div class="component">
