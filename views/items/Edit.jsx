@@ -8,7 +8,7 @@ function Edit (props) {
         <Layout item={props.item}>
             <div class="component-header">
                 <h1>{name} Edit Page</h1>
-            <a href={`/items/${_id}?token=${props.token}`}><button>Home page</button></a>
+            <a href={`/items/${_id}?token=${props.token}`}><button title="Back to Item">⬅️</button></a>
             </div>
             
             <form action={`/items/${_id}?_method=PUT&token=${props.token}`} method="POST" class="add-form">

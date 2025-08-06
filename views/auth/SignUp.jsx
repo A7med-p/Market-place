@@ -17,6 +17,7 @@ function SignUp (props) {
                        <label>Password:</label>
                        <input type="password" name="password" class="write"/>
                        <input type="submit" value="Sign Up" class="buy"/>
+                       <a href="/users/login">i have an account</a>
                     </form>
                 </div>
              </div>

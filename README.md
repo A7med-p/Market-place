@@ -138,7 +138,7 @@ Market-place/
 
 ## 📸 Screenshots / Demo
 
-
+![some alt text](./images/thepic.png)
 
 ---
 

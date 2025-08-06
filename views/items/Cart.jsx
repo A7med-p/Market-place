@@ -9,7 +9,7 @@ function Cart(props) {
         <Layout cart={props.cart}>
             <header>
             <span class="spa"><h1>🛒 Cart</h1></span>
-            <span class="spa"><a href={`/items/home?token=${props.token}`}><button>Home page</button></a></span>
+            <span class="spa"><a href={`/items/home?token=${props.token}`}><button title="Marketplace">🏠</button></a></span>
             </header>
             
             <div class="component">

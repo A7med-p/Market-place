@@ -7,7 +7,7 @@ function Show(props){
     <div class="component">
     <div class="item-detail">
        <div class="component-header">
-        <a href={`/items?token=${props.token}`}><button>←</button></a>
+        <a href={`/items?token=${props.token}`}><button title="Back to My Listings">⬅️</button></a>
          <h2>{props.item.name}</h2>
          <p>${props.item.price} - {props.item.location}</p>
        </div>
