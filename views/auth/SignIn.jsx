@@ -1,15 +1,24 @@
 const React = require('react')
+const Layout = require('../layouts/Layout')
 
 function SignIn (props) {
     return(
-        <div>
-            <h1>Sign In</h1>
-            <form action="/users/login" method="POST">
-                Email: <input type="email" name="email" /><br/>
-                Password: <input type="password" name="password" /><br/>
-                <input type="submit" value="Sign In" />
-            </form>
-        </div>
+        <Layout>
+            <div class="card">
+                <div class="card-header">
+                    <h1>Sign In</h1>
+                </div>
+                <div class="card-body">
+                   <form action="/users/login" method="POST" class="add-form">
+                     <label>Email:</label>
+                     <input type="email" name="email" class="write"/>
+                     <label>Password:</label>
+                     <input type="password" name="password" class="write"/>
+                     <input type="submit" value="Sign In" class="buy"/>
+                   </form> 
+                </div>
+            </div>  
+        </Layout>
     )
 }
 

@@ -144,4 +144,16 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
     width: 100%;
- }
+}
+.card{
+    background-color: #f8f9fa88;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: 300px;
+    margin-top: 125px;
+    border-radius: 5%;
+}
+.card-header {
+    background-color: #f8f9fa88;
+    border-radius: 5%;
+}
