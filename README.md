@@ -1,17 +1,44 @@
-# Market-place
+# 🛒 Market-place
 
-a market place is a market ware the user can download the itms that they want to sell or buy an item if they were intrested by receving the item from a certent place.
+A simple online marketplace where users can sign up, log in, list items for sale, and buy items from others. Users can browse through available products and manage their listings securely.
 
-## To start:
-### Installing the Dependencies
-```
+---
+
+## 📦 Features
+
+- User authentication (Sign Up / Sign In)
+- Create, Read, Update, and Delete items
+- Add items to cart
+- Secure password hashing using Bcrypt
+- Token-based authentication with JWT
+- Server-side rendering with JSX
+- Load testing with Artillery
+- Testing with Jest & Supertest
+- Organized MVC architecture
+
+---
+
+## 🚀 Installation Instructions
+
+
+### 1. Install the dependencies
+
+```bash
 npm install express mongoose dotenv jsx-view-engine method-override
 npm install morgan bcrypt jsonwebtoken
 npm install --save-dev jest supertest mongodb-memory-server artillery@1.7.9
-
 ```
 
-### Creating the needed files ang folders
+### 2. Run the app
+
+```bash
+npm start
+```
+
+---
+
+## 📁 File Structure
+
 ```
 Market-place/
 ├── controllers/
@@ -26,6 +53,7 @@ Market-place/
 │       ├── apiController.js     
 │       └── routeController.js   
 ├── models/
+│   ├── cart.js   
 │   ├── db.js    
 │   ├── item.js    
 │   └── user.js   
@@ -33,19 +61,22 @@ Market-place/
 │   └── styles.css 
 ├── routes/
 │   └── apiRoutes.js
+├── test/
+│   └── user.test.js
 ├── views/
 │   ├── auth/
 │   │   ├── SignIn.jsx     
 │   │   └── SignUp.jsx   
 │   ├── items/
+│   │   ├── Cart.jsx  
+│   │   ├── Buy.jsx
+│   │   ├── Home.jsx          
 │   │   ├── Edit.jsx    
 │   │   ├── Index.jsx   
 │   │   ├── New.jsx     
 │   │   └── Show.jsx  
 │   └── layouts/
 │       └── Layout.jsx
-├── tests/
-│   └── engineer.test.js
 ├── app.js
 ├── server.js
 ├── .env
@@ -54,29 +85,69 @@ Market-place/
 └── package.json
 ```
 
+---
+
+## 📚 Instructional Guide
 
 | **URL** | **HTTP Verb** |  **Action**| **Used For**| **Mongoose Method** | **View** |
 |------------|-------------|------------|-------------------------------| ---------------------| ------------- |
-| /marketplace/         | GET       | index  | Displaying a list of all items | Item.find | Index.jsx |
-| /marketplace/new         | GET       | new | Display HTML form for creating a new item | none | New.jsx |
-| /marketplace/:id      | DELETE    | destroy | Delete a specific photo  | Item.findByIdAndDelete | none |
-| /marketplace/:id      | PATCH/PUT | update | Update a specific item   | Item.findOneAndUpdate | none |
-| /marketplace          | POST      | create | Create a new item | Item.create | none |
-| /marketplace/:id/edit | GET       | edit   | Return an HTML form for editing an item | Item.findById | Edit.jsx |
-| /marketplace/:id      | GET       | show   | Display a specific item | Item.findById | Show.jsx |     
+| `/marketplace/`         | GET       | index  | Display all items | `Item.find` | `Index.jsx` |
+| `/marketplace/new`      | GET       | new | Display form to create item | none | `New.jsx` |
+| `/marketplace/:id`      | DELETE    | destroy | Delete item | `Item.findByIdAndDelete` | none |
+| `/marketplace/:id`      | PATCH/PUT | update | Update item | `Item.findOneAndUpdate` | none |
+| `/marketplace`          | POST      | create | Add new item | `Item.create` | none |
+| `/marketplace/:id/edit` | GET       | edit | Edit item form | `Item.findById` | `Edit.jsx` |
+| `/marketplace/:id`      | GET       | show | Show specific item | `Item.findById` | `Show.jsx` |
 
-| Method | Route | Purpose | Authentication |
-|--------|-------|---------|----------------|
-| GET | `/users` | Show signup form | No |
-| POST | `/users` | Create user account | No |
-| GET | `/users/login` | Show login form | No |
-| POST | `/users/login` | Authenticate user | No |
-| PUT | `/users/:id` | Update user profile | Yes |
-| DELETE | `/users/:id` | Delete user account | Yes |
-| GET | `/items` | Show item collection | Yes |
-| GET | `/items/new` | Show create form | Yes |
-| POST | `/items` | Create new item | Yes |
-| GET | `/items/:id` | Show item details | Yes |
-| GET | `/items/:id/edit` | Show edit form | Yes |
-| PUT | `/items/:id` | Update item | Yes |
-| DELETE | `/items/:id` | Delete item | Yes |
+---
+
+## 🔐 Web Routes & Authentication
+
+| Method | Route | Purpose | Auth Required |
+|--------|-------|---------|---------------|
+| GET | `/users` | Show signup form | ❌ |
+| POST | `/users` | Create account | ❌ |
+| GET | `/users/login` | Login form | ❌ |
+| POST | `/users/login` | Authenticate | ❌ |
+| PUT | `/users/:id` | Update profile | ✅ |
+| DELETE | `/users/:id` | Delete user | ✅ |
+| GET | `/items` | View items | ✅ |
+| GET | `/items/new` | Create form | ✅ |
+| POST | `/items` | Add item | ✅ |
+| GET | `/items/:id` | Item details | ✅ |
+| GET | `/items/:id/edit` | Edit item | ✅ |
+| PUT | `/items/:id` | Update item | ✅ |
+| DELETE | `/items/:id` | Remove item | ✅ |
+
+---
+
+## 🛠️ Technologies Used
+
+- **Node.js & Express.js** – Server
+- **MongoDB & Mongoose** – Database
+- **JSX View Engine** – Templating
+- **Bcrypt** – Password hashing
+- **JWT (jsonwebtoken)** – Authentication
+- **Method-Override** – Enable PUT & DELETE from forms
+- **Jest + Supertest** – Testing
+- **Artillery** – Load testing
+- **Morgan** – Request logging
+- **dotenv** – Environment configuration
+
+---
+
+## 📸 Screenshots / Demo
+
+
+
+---
+
+## 🚧 Future Improvements
+
+- Add payment gateway integration
+- Implement item reviews and ratings
+- Add image upload functionality for listings
+- Improve UI/UX styling
+- Add category filtering and search
+
+---
