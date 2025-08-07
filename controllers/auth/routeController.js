@@ -5,9 +5,9 @@ const viewController = require('./viewController')
 const itemsViewController = require('../items/viewController')
 
 router.post('/', dataController.createUser, viewController.redirectToLogin)
-router.get('/', viewController.signUp) 
+router.get('/', viewController.signUp)
 router.post('/login', dataController.loginUser, itemsViewController.redirectHome)
-router.get('/login', viewController.signIn) 
+router.get('/login', viewController.signIn)
 router.put('/:id', dataController.updateUser)
 router.delete('/:id', dataController.auth, dataController.deleteUser)
 

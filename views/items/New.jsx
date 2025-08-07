@@ -1,14 +1,14 @@
 const React = require('react')
 const Layout = require('../layouts/Layout')
 
-function New (props) {
-    return(
+function New(props) {
+    return (
         <Layout item={props.item}>
             <div class="component-header">
-            <h1>create new item</h1>
-            <a href={`/items?token=${props.token}`}><button title="Back to My Listings">⬅️</button></a>
+                <h1>create new item</h1>
+                <a href={`/items?token=${props.token}`}><button title="Back to My Listings">⬅️</button></a>
             </div>
-            
+
             <form action={`/items?token=${props.token}`} method="POST" class="add-form" >
                 <div class="form-group">
                     <label>Name</label>
@@ -31,8 +31,8 @@ function New (props) {
                     <input type="text" name="location" class="write" placeholder="Enter location" required />
                 </div>
                 <div class="form-group">
-                        <label>Description</label>
-                        <textarea name="description" class="write" rows="3" placeholder="Enter description" required></textarea>
+                    <label>Description</label>
+                    <textarea name="description" class="write" rows="3" placeholder="Enter description" required></textarea>
                 </div>
                 <div class="form-group">
                     <label>Stock</label>

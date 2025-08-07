@@ -19,11 +19,11 @@ exports.auth = async (req, res, next) => {
 
 exports.createUser = async (req, res) => {
   try {
-    
+
     if (!req.body.name || !req.body.email || !req.body.password) {
       return res.status(400).json({ message: 'Name, email, and password are required' })
     }
-    
+
     const user = new User(req.body)
     await user.save()
     const token = await user.generateAuthToken()
